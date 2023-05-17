@@ -12,11 +12,11 @@
     在的话，cache-control 的优先级高于 expires。
     协商缓存相关字段有 Last-Modified/If-Modified-Since，Etag/If-None-Match
 ## 4.transition 和 和 n animation 的区别
-    Animation 和 transition 大部分属性是相同的，他们都是随时间改变元素的属性值，
+    Animation 和 transition 大部分属性是相同的，他们都是随时间改变元素的属性值+，
     他们的主要区别是 transition 需要触发一个事件才能改变属性，而 animation 不需要
     触发任何事件的情况下才会随时间改变属性值，并且 transition 为 2 帧，从
     from .... to，而 animation 可以一帧一帧的
-## 5.get 和 和 t post 请求在缓存方面的区别
+## 5.get  和 post 请求在缓存方面的区别
     get 请求类似于查找的过程，用户获取数据，可以不用每次都与数据库连接，所以可以
     使用缓存。
     post 不同，post 做的一般是修改和删除的工作，所以必须与数据库交互，所以不能使
