@@ -1,3 +1,125 @@
+# 23/5/21
+## 41.Flash、Ajax 各自的优缺点，在使用中如何取舍？
+    1、Flash ajax 对比
+    Flash 适合处理多媒体、矢量图形、访问机器；对 CSS、处理文本上不足，不容易被搜索。
+    Ajax 对 CSS、文本支持很好，支持搜索；多媒体、矢量图形、机器访问不足。
+    共同点：与服务器的无刷新传递消息、用户离线和在线状态、操作 DOM
+## 42.针对 jQuery 的优化方法？
+    优先使用 ID 选择器
+    在 class 前使用 tag(标签名)
+    给选择器一个上下文
+    慎用 .live()方法（应该说尽量不要使用）
+    使用 data()方法存储临时变量
+## 43.angular 中$rootScope 和 scope 有什么区别？
+    scope 是 html 和单个 controller 之间的桥梁，数据绑定就靠他了。rootscope 是各个 
+    controller 中 scope 的
+    桥梁。用 rootscope 定义的值，可以在各个 controller 中使用。
+## 44.Vue 实现单页
+    ① 构建项目 首先创建各个组件
+    ② 配置路由 首先在我们的项目中安装 vue-router 引入各个组件并配置路由
+    ③ 利用 v-link 实现路由链接
+## 45.混合 app 的优点
+    混合应用大家都知道是原生应用和 Web 应用的结合体，采用了原生应用的一部分、Web 应用的一部 
+    分，所以
+    必须在部分在设备上运行、部分在 Web 上运行。
+    不过混合应用中比例很自由，比如 Web 占 90%，原生占 10%；或者各占 50%。
+    优点：
+    兼容多平台；
+    顺利访问手机的多种功能；
+    App Store 中可下载（Wen 应用套用原生应用的外壳）；
+    可线下使用。
+    缺点：
+    用户体验不如本地应用；
+    性能稍慢（需要连接网络）；
+    技术还不是很成熟。
+## 46.如何避免回调地狱？
+    可以这么解决：1、模块化：将回调函数分割为独立的函数 2、使用 Promises
+    3、使用 yield 来计算生成器或 Promise
+## 47.为什么要用 node？
+    总结起来 node 有以下几个特点:简单强大，轻量可扩展．简单体现在 node 使用的是javascript,json 来进行编
+    码，人人都会；强大体现在非阻塞 IO,可以适应分块传输数据，较慢的网络环境，尤其擅长高并发访问；轻量
+    体现在 node 本身既是代码，又是服务器，前后端使用统一语言;可扩展体现在可以轻松应对多实例，多服务器
+    架构，同时有海量的第三方应用组件．
+## 48.Node.js 的适用场景？
+    1)、实时应用：如在线聊天，实时通知推送等等（如 socket.io）
+    2)、分布式应用：通过高效的并行 I/O 使用已有的数据
+    3)、工具类应用：海量的工具，小到前端压缩部署（如 grunt），大到桌面图形界面应用程序
+    4)、游戏类应用：游戏领域对实时和并发有很高的要求（如网易的 pomelo 框架）
+    5)、利用稳定接口提升 Web 渲染能力
+    6)、前后端编程语言环境统一：前端开发人员可以非常快速地切入到服务器端的开发（如著名的纯 
+    Javascriptc
+    全栈式 MEAN 架构）
+## 49.跨域（jsonp，ajax）
+    JSONP：ajax 请求受同源策略影响，不允许进行跨域请求，而 script 标签 src 属性中
+    的链接却可以访问跨域的 js 脚本，利用这个特性，服务端不再返回 JSON 格式的数
+    据，而是返回一段调用某个函数的 js 代码，在 src 中进行了调用，这样实现了跨域。
+## 50.watch 和计算属性有什么区别？
+    通俗来讲，既能用 computed 实现又可以用 watch 监听来实现的功能，推荐用
+    computed，重点在于 computed 的缓存功能
+    computed 计算属性是用来声明式的描述一个值依赖了其它的值，当所依赖的值或者变
+    量改变时，计算属性也会跟着改变；
+    watch 监听的是已经在 data 中定义的变量，当该变量变化时，会触发 watch 中的方
+    法。
+# 23/5/19
+## 31.jq 和 zepto 区别是什么
+    1,width()和 height()的区别：Zepto 由盒模型(box-sizing)决定，用.width()返回赋值的 
+    width，用.css('width')返
+    回加 border 等的结果；jQuery 会忽略盒模型，始终返回内容区域的宽/高(不包含     
+    padding、border)。
+    2,offset()的区别：Zepto 返回{top,left,width,height}；jQuery 返回{width,height}。
+    3,Zepto 无法获取隐藏元素宽高，jQuery 可以。
+    4,Zepto 中没有为原型定义 extend 方法而 jQuery 有。
+## 32.jquery 对象和 dom 对象是怎样转换的？
+    jquery转DOM对象:jQuery 对象是一个数组对象，可以通过[index]的得到相应的DOM对象还可以通过get[index]
+    去得到相应的 DOM 对象。DOM 对象转 jQuery 对象:$(DOM 对象)
+## 33.ajax 出现错误怎么调试？
+    JQuery 使我们在开发 Ajax 应用程序的时候提高了效率，减少了许多兼容性问题，我们在 Ajax 项目中，遇到
+    ajax 异步获取数据出错怎么办，我们可以通过捕捉 error 事件来获取出错的信息。
+    发送 error 可能有下面两张引起的，或者其他程序问题，需要我们认真仔细。
+    1、data:"{}", data 为空也一定要传"{}"；不然返回的是 xml 格式的。并提示 parsererror.
+    2、parsererror 的异常和 Header 类型也有关系。及编码 header('Content-type: text/html; charset=utf8');
+## 34.http 和 https 的区别是什么？
+    http 和 https 使用的是完全不同的连接方式,用的端口也不一样,前者是 80,后者是 443。
+    HTTPS 是以安全为目标的 HTTP 通道，简单讲是 HTTP 的安全版。
+    由于 https 要还密钥和确认加密算法的过程，所以更安全
+## 35.什么是内存泄漏，哪些常见操作会造成内存泄漏
+    内存泄露是指一块被分配的内存既不能使用，又不能回收，直到浏览器进程结束。在 C++中，因为是手动管理
+    内存，内存泄露是经常出现的事情。而现在流行的 C#和 Java 等语言采用了自动垃圾回收方法管理内存，正常
+    使用的情况下几乎不会发生内存泄露。浏览器中也是采用自动垃圾回收方法管理内存，但由于浏览器垃圾回
+    收方法有 bug，会产生内存泄露。
+    1 全局变量引起的内存泄漏
+    2 闭包引起的内存泄漏
+    3dom 清空或删除时，事件未清除导致的内存泄漏
+## 36.跨域的几种解决方式
+    ① 通过 jsonp 跨域
+    ② 通过修改 document.domain 来跨子域
+    ③ 使用 window.name 来进行跨域
+    ④ 使用 HTML5 中新引进的 window.postMessage 方法来跨域传送数据
+    ⑤ CORS
+    核心思想：在服务器端通过检查请求头部的 origin，从而决定请求应该成功还是失败。具体的方法是在服务端
+    设置 Response Header 响应头中的 Access-Control-Allow-Origin 为对应的域名，实现了 CORS（跨域资源共享），
+    这里出于在安全性方面的考虑就是尽量不要用 *，但对于一些不重要的数据则随意。
+## 37.同源策略
+    1. 同源，就是指两个页面具有相同的协议，主机（域名），端口，浏览器会对不同源的脚本或者文本的访问
+方式进行的限制
+    2. 页面中的链接，重定向以及表单提交不会受到同源策略的限制，允许跨域资源嵌入
+## 38.简述 AJAX 的交互模型，以及同步和异步的区别
+    AJAX 主要用于实现从服务器获取数据并局部刷新页面。其交互模型为，AJAX 在浏览
+    器端引入一个执行引擎，它一边接收 user 的请求，一边传送数据给服务器，并把服务器端
+    返回的结果展现给 user。
+    同步：脚本会停留并等待服务器发送回复然后继续。
+    异步：脚本不停留并处理可能的回复。
+## 39.javascript 的本地对象，内置对象和宿主对象
+    本地对象为 array obj regexp 等可以 new 实例化
+    内置对象为 gload Math 等不可以实例化的
+    宿主为浏览器自带的 document,window 等
+## 40.简述 readyonly 与 disabled 的区别
+    ReadOnly 和 Disabled 的作用是使用户不能够更改表单域中的内容.
+    但是二者还是有着一些区别的：
+    1、Readonly 只针对 input(text/password)和 textarea 有效，而 disabled 对于所有的表单元素有效，包括
+    select,radio,checkbox,button 等。
+    2、在表单元素使用了 disabled 后，我们将表单以 POST 或者 GET 的方式提交的话，这个元素的值不会被传递
+    出去，而 readonly 会将该值传递出去
 # 23/5/18
 ## 21.简单介绍一下 symbol
     Symbol 是 ES6 的新增属性，代表用给定名称作为唯一标识，这种类型的值可以这样创
@@ -131,12 +253,12 @@
     强缓存相关字段有 expires，cache-control。如果 cache-control 与 expires 同时存
     在的话，cache-control 的优先级高于 expires。
     协商缓存相关字段有 Last-Modified/If-Modified-Since，Etag/If-None-Match
-## 4.transition 和 和 n animation 的区别
+## 4.transition 和   animation 的区别
     Animation 和 transition 大部分属性是相同的，他们都是随时间改变元素的属性值，
     他们的主要区别是 transition 需要触发一个事件才能改变属性，而 animation 不需要
     触发任何事件的情况下才会随时间改变属性值，并且 transition 为 2 帧，从
     from .... to，而 animation 可以一帧一帧的
-## 5.get 和 和 t post 请求在缓存方面的区别
+## 5.get 和 和  post 请求在缓存方面的区别
     get 请求类似于查找的过程，用户获取数据，可以不用每次都与数据库连接，所以可以
     使用缓存。
     post 不同，post 做的一般是修改和删除的工作，所以必须与数据库交互，所以不能使
@@ -154,7 +276,7 @@
     缓存分为两种：强缓存和协商缓存，根据响应的 header 内容来决定。
     强缓存相关字段有 expires，cache-control。如果 cache-control 与 expires 同时存
     在的话，cache-control 的优先级高于 expires。
-## 10.cookie 和 和 n session 的区别
+## 10.cookie 和 和  session 的区别
     1. cookie 数据存放在客户的浏览器上，session 数据放在服务器上。
     2. cookie 不是很安全，别人可以分析存放在本地的 COOKIE 并进行 COOKIE 欺
     骗
